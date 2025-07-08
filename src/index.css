@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+@layer components{
+    .active{
+        @apply underline decoration-2 decoration-red-500 underline-offset-4 transition duration-500
+    }
+}
+
+
+/* clerk user button adjust  */
+.cl-avatarBox {
+    width: 3rem;
+    height: 3rem;
+}
