@@ -8,7 +8,7 @@ import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Footer from './components/Footer';
 
 function App() {
 
@@ -56,6 +56,8 @@ function App() {
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/cart' element={<Cart></Cart>}></Route>
       </Routes>
+
+      <Footer></Footer>
   </BrowserRouter>
   )
 }

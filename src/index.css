@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
+*{
+    box-sizing: border-box;
+}
 
 @layer components{
     .active{
         @apply underline decoration-2 decoration-red-500 underline-offset-4 transition duration-500
+    }
+}
+
+@layer components{
+    .btn-gradiend{
+        @apply bg-gradient-to-r from-red-500 to-purple-500  text-white px-3 py-2 rounded-md cursor-pointer mt-2;
     }
 }
 

@@ -11,7 +11,8 @@ const Carousel = () => {
   useEffect(() => {
     fetchAllProducts();
   }, []);
-
+  
+  // console.log(data)
   const SamplePrevArrow = (props)=>{
         const {className, style, onClick} = props;
 
@@ -38,6 +39,7 @@ const Carousel = () => {
     autoplaySpeed: 2000,
     infinite: true,
     speed: 500,
+    pauseOnHover: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow to="next"/>,
@@ -45,7 +47,7 @@ const Carousel = () => {
   };
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Slider {...settings}>
         {
             data?.slice(0,7).map((product, index) => 
@@ -55,7 +57,7 @@ const Carousel = () => {
                             <h3 className="text-red-500 font-semibold font-sans text-sm">Powering your World with the Best in electronics</h3>
                             <h1 className="text-3xl font-bold uppercase line-clamp-3 md:w-[500px] text-white">{product.title}</h1>
                             <p className="md:w-[500px] line-clamp-3 text-gray-400 pr-7">{product.description}</p>
-                            <button className="bg-gradient-to-r from-red-500 to-purple-500  text-white px-3 py-2 rounded-md cursor-pointer mt-2">Shop Now</button>
+                            <button className="btn-gradiend">Shop Now</button>
                         </div>
                         <div>
                             <img src={product.image} alt={product.title} className="rounded-full w-[550px] hover:scale-105 transition-all shadow-xl shadow-red-400" />
