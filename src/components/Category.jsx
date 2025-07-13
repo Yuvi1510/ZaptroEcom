@@ -1,18 +1,8 @@
 import {  getData } from '../context/DataContext'
 
 const Category = () => {
-    const {data} = getData();
+    const { categoryOnlyData} = getData();
 
-    const getUniqueCategory = (data, property) =>{
-        let newVal = data?.map((currentElement)=>{
-            return currentElement[property];
-        });
-
-        return newVal;
-    }
-
-    const categoryOnlyData = [...new Set(getUniqueCategory(data, 'category'))];
-    console.log(categoryOnlyData);
 
   return (
     <div className='bg-[#101829]'>
