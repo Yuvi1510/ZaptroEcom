@@ -27,7 +27,7 @@ const Pagination = ({page, pageHandler, totalPage}) => {
       {
         getPages(page, totalPage)?.map((item, index) => {
           return (
-            <span key={index} onClick={()=> typeof item === "number" && pageHandler(item)}
+            <span key={index} onClick={()=> pageHandler(item)}
             className={`cursor-pointer ${item === page? "font-bold text-red-600":""}`}>
               {item}
             </span>

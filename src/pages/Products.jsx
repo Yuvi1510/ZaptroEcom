@@ -58,24 +58,28 @@ const totalPage = Math.ceil(filteredData?.length / 8);
       <div className='max-w-6xl mx-auto px-4 mb-10'>
         {
             data?.length > 0?(
-             <>
-               <div className='flex gap-8'>
-                <FilterSection search={search} setSearch={setSearch} category={category} setCategory={setCategory} brand={brand} setBrand={setBrand} priceRange={priceRange} setPriceRange={setPriceRange} handleCategoryChange={handleCategoryChange} handleBrandChange={handleBrandChange} />
-                {
-                  filteredData?.length > 0 ? <div className='grid grid-cols-4 gap-7'>
-                  {
-                  filteredData?.slice(page*8 - 8, page*8).map((product, index)=>{
-                    return <ProductCard product={product} key={index}/>
-                  })
-                }
-                </div>
-                : <video muted autoPlay loop>
-                  <source src={empty_cart} type='video/webm' />
-                </video>
-                }
-              </div>
-              <Pagination pageHandler={pageHandler} page={page} totalPage={totalPage} />
-             </>
+             < >
+                        <div  className='flex gap-8'>
+                          <FilterSection search={search} setSearch={setSearch} category={category} setCategory={setCategory} brand={brand} setBrand={setBrand} priceRange={priceRange} setPriceRange={setPriceRange} handleCategoryChange={handleCategoryChange} handleBrandChange={handleBrandChange} />
+                        {
+                          filteredData?.length > 0 ? 
+                          <div className='flex flex-col justify-center'>
+
+                          <div className='grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-7'>
+                                    {
+                                    filteredData?.slice(page*8 - 8, page*8).map((product, index)=>{
+                                      return <ProductCard product={product} key={index}/>
+                                    })
+                                  }
+                          </div>
+                          <Pagination pageHandler={pageHandler} page={page} totalPage={totalPage} />
+                          </div>
+                          : <img src={empty_cart} alt="" />
+                        }
+                        </div>
+
+              </>
+             
             ):(
               <div className='flex items-center justify-center h-[400px]'>
                 <video muted autoPlay loop>
@@ -87,8 +91,9 @@ const totalPage = Math.ceil(filteredData?.length / 8);
         
 
       </div>
+ 
     </div>
   )
-}
+} 
 
-export default Products
+export default Products;
